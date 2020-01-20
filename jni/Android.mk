@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE    := onvif
-LOCAL_CFLAGS :=-fno-rtti -fexceptions  -DWITH_OPENSSL -DWITH_DOM 
+LOCAL_CFLAGS :=-fno-rtti -fexceptions
 
 LOCAL_C_INCLUDES := \
 	$(LOCAL_PATH)/src/include \
@@ -25,8 +25,8 @@ LOCAL_SRC_FILES :=src/dom.cpp		\
 LOCAL_LDLIBS    := $(LOCAL_PATH)/src/libs/armeabi-v7a/libcrypto_1_1.so
 LOCAL_LDLIBS    += $(LOCAL_PATH)/src/libs/armeabi-v7a/libssl_1_1.so
 
-LOCAL_CXXFLAGS := -fexceptions -Wno-write-strings -DWITH_OPENSSL -DWITH_DOM 
-LOCAL_CPPFLAGS +=  -O2 -fexceptions -DHAVE_SOCKLEN_T -DHAVE_STRUCT_IOVEC -DWITH_OPENSSL -DWITH_DOM
+LOCAL_CXXFLAGS := -fexceptions -Wno-write-strings
+LOCAL_CPPFLAGS +=  -O2 -fexceptions -DWITH_OPENSSL -DWITH_DOM
 LOCAL_MODULE_TAGS := optional  
 
 include $(BUILD_SHARED_LIBRARY)
