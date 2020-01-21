@@ -4157,7 +4157,7 @@ soap_ssl_init()
 #else
       srand((unsigned int)time(NULL));
 #endif
-      do 
+      do
       {
 #ifdef HAVE_RANDOM
         long r = random(); /* we actually do no use random() anywhere, except to help seed the OpenSSL PRNG */
@@ -4621,7 +4621,7 @@ ssl_auth_init(struct soap *soap)
     int err;
     err = gsk_environment_open(&soap->ctx);
     if (err == GSK_OK)
-      err = gsk_attribute_set_enum(soap->ctx, GSK_PROTOCOL_SSLV2, GSK_PROTOCOL_SSLV2_OFF); 
+      err = gsk_attribute_set_enum(soap->ctx, GSK_PROTOCOL_SSLV2, GSK_PROTOCOL_SSLV2_OFF);
     /* enable all TSLv1 protocols and disable SSLv3 by default if no SSL/TLS flags are set */
     if (!(soap->ssl_flags & SOAP_SSLv3_TLSv1))
       soap->ssl_flags = SOAP_TLSv1;
@@ -4831,7 +4831,7 @@ soap_ssl_accept(struct soap *soap)
   if (soap->recv_timeout || soap->send_timeout)
   {
     int t = soap->recv_timeout > soap->send_timeout ? soap->recv_timeout : soap->send_timeout;
-    if (t > 0) 
+    if (t > 0)
       retries = 10 * t;
     else if (t > -100000)
       retries = 1;
@@ -4897,7 +4897,7 @@ soap_ssl_accept(struct soap *soap)
   if (soap->recv_timeout || soap->send_timeout)
   {
     int t = soap->recv_timeout > soap->send_timeout ? soap->recv_timeout : soap->send_timeout;
-    if (t > 0) 
+    if (t > 0)
       retries = 10 * t;
     else if (t > -100000)
       retries = 1;
@@ -4953,7 +4953,7 @@ soap_ssl_accept(struct soap *soap)
   if (soap->recv_timeout || soap->send_timeout)
   {
     int t = soap->recv_timeout > soap->send_timeout ? soap->recv_timeout : soap->send_timeout;
-    if (t > 0) 
+    if (t > 0)
       retries = 10 * t;
     else if (t > -100000)
       retries = 1;
@@ -5871,7 +5871,7 @@ again:
       int t = soap->recv_timeout > soap->send_timeout ? soap->recv_timeout : soap->send_timeout;
       if (soap->connect_timeout > 0 && t < soap->connect_timeout)
         t = soap->connect_timeout;
-      if (t > 0) 
+      if (t > 0)
         retries = 10 * t;
       else if (t > -100000)
         retries = 1;
@@ -6120,7 +6120,7 @@ again:
       int t = soap->recv_timeout > soap->send_timeout ? soap->recv_timeout : soap->send_timeout;
       if (soap->connect_timeout > 0 && t < soap->connect_timeout)
         t = soap->connect_timeout;
-      if (t > 0) 
+      if (t > 0)
         retries = 10 * t;
       else if (t > -100000)
         retries = 1;
@@ -6193,7 +6193,7 @@ again:
       int t = soap->recv_timeout > soap->send_timeout ? soap->recv_timeout : soap->send_timeout;
       if (soap->connect_timeout > 0 && t < soap->connect_timeout)
         t = soap->connect_timeout;
-      if (t > 0) 
+      if (t > 0)
         retries = 10 * t;
       else if (t > -100000)
         retries = 1;
@@ -7362,7 +7362,7 @@ soap_done(struct soap *soap)
   if (soap->state == SOAP_INIT)
     if (soap->ctx)
       gsk_environment_close(&soap->ctx);
-#endif  
+#endif
 #ifdef WITH_C_LOCALE
   SOAP_FREELOCALE(soap);
 #endif
@@ -7944,25 +7944,25 @@ http_post(struct soap *soap, const char *endpoint, const char *host, int port, c
   size_t l;
   switch (soap->status)
   {
-    case SOAP_GET: 
+    case SOAP_GET:
       s = "GET";
       break;
-    case SOAP_PUT: 
+    case SOAP_PUT:
       s = "PUT";
       break;
-    case SOAP_PATCH: 
+    case SOAP_PATCH:
       s = "PATCH";
       break;
-    case SOAP_DEL: 
+    case SOAP_DEL:
       s = "DELETE";
       break;
     case SOAP_CONNECT:
       s = "CONNECT";
       break;
-    case SOAP_HEAD: 
+    case SOAP_HEAD:
       s = "HEAD";
       break;
-    case SOAP_OPTIONS: 
+    case SOAP_OPTIONS:
       s = "OPTIONS";
       break;
     default:
@@ -17545,7 +17545,7 @@ soap_QName(struct soap *soap, const char *s, long minlen, long maxlen, const cha
             }
             else
             {
-              flag = 1; 
+              flag = 1;
               r = soap->local_namespaces[np->index].ns;
               m = strlen(r);
             }
@@ -20801,7 +20801,7 @@ soap_http_get_form(struct soap *soap)
 {
   return soap_http_get_body_prefix(soap, NULL, "?");
 }
-  
+
 /******************************************************************************/
 
 SOAP_FMAC1
@@ -21376,7 +21376,7 @@ soap_ntlm_handshake(struct soap *soap, int command, const char *endpoint, const 
   struct SOAP_ENV__Header *oldheader;
   if (soap->ntlm_challenge && userid && passwd && soap->authrealm)
   {
-    tSmbNtlmAuthRequest req;  
+    tSmbNtlmAuthRequest req;
     tSmbNtlmAuthResponse res;
     tSmbNtlmAuthChallenge ch;
     int k = soap->keep_alive;
